@@ -131,7 +131,7 @@ function Main() {
 
         <div data-aos="fade-up" data-aos-duration="1000">
           {moreFeatures.map((morefeature, i) => (
-            <div>
+            <div key={i}>
               {morefeature.icon}
               <h3>{morefeature.h3}</h3>
               <p>{morefeature.paragraph}</p>

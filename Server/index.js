@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
-const port = process.env.PORT || 4000;
+const port = "https://warmth-crud.onrender.com"
 const app = express();
 let token;
 
@@ -18,7 +18,7 @@ app.listen("https://warmth-crud.onrender.com", () => {
 });
 
 mongoose
-  .connect(process.env.DB_URL, {
+  .connect("mongodb+srv://ahuziwisdom:EhN9mox7fsdaheNL@warmthjwt.hro22xw.mongodb.net/?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -31,7 +31,7 @@ mongoose
 
 app.use(
   cors({
-    origin: ["https://warmthbg.netlify.app"],
+    origin: ["https://warmthbg.netlify.app","http://localhost:3000"],
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
