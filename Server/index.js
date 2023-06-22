@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
-const port = "https://warmth-crud.onrender.com/";
+const port = process.env.PORT || 4000;
 const app = express();
 let token;
 
