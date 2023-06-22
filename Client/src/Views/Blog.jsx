@@ -36,7 +36,7 @@ function Blog() {
         let source = axios.CancelToken.source();
         let config = { cancelToken: source.token }
         setLoading(true)
-        axios.get(`http://localhost:4000/Blog/${blogId}`, config)
+        axios.get(`https://warmth-crud.onrender.com/Blog/${blogId}`, config)
             .then((response) => {
                 setLoading(false)
                 setBlogInfo(response.data)

@@ -28,7 +28,7 @@ function Dashboard() {
             if (!cookies.jwt) {
                 navigate("/login")
             } else {
-                const { data } = await axios.post("http://localhost:4000", {}, { withCredentials: true });
+                const { data } = await axios.post("https://warmth-crud.onrender.com", {}, { withCredentials: true });
                 if (!data.status) {
                     removeCookies("jwt")
                     navigate("/login")
@@ -42,7 +42,7 @@ function Dashboard() {
 
     useEffect(() => {
         setLoading(true)
-        axios.get("http://localhost:4000/Dashboard")
+        axios.get("https://warmth-crud.onrender.com/Dashboard")
             .then((response) => {
                 setLoading(false)
                 setMyBlog(response.data)

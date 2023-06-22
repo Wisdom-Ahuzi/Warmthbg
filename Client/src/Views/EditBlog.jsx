@@ -36,7 +36,7 @@ function EditBlog() {
             if (!cookies.jwt) {
                 navigate("/login")
             } else {
-                const { data } = await axios.post("http://localhost:4000", {}, { withCredentials: true });
+                const { data } = await axios.post("https://warmth-crud.onrender.com", {}, { withCredentials: true });
                 if (!data.status) {
                     removeCookies("jwt")
                     navigate("/login")
@@ -70,7 +70,7 @@ function EditBlog() {
         let source = axios.CancelToken.source();
         let config = { CancelToken: source.token }
         setLoading(true)
-        axios.get(`http://localhost:4000/EditBlog/${editBlogId}`, config)
+        axios.get(`https://warmth-crud.onrender.com/EditBlog/${editBlogId}`, config)
             .then((response) => {
                 setLoading(false)
                 setEditBlogInfo(response.data)
@@ -109,7 +109,7 @@ function EditBlog() {
         try {
             if (editTags.length > 0) {
                 axios
-                    .put(`http://localhost:4000/updateBlog/${editBlogId}`,
+                    .put(`https://warmth-crud.onrender.com/updateBlog/${editBlogId}`,
                         { editBlogId, updateTopic, updateDisplayImg, updateContent, updatePreviewText, editTags })
                     .then(response => {
                         console.log(response.data);
@@ -119,7 +119,7 @@ function EditBlog() {
                     });
             } else {
                 axios
-                    .put(`http://localhost:4000/updateBlog/${editBlogId}`,
+                    .put(`https://warmth-crud.onrender.com/updateBlog/${editBlogId}`,
                         { editBlogId, updateTopic, updateDisplayImg, updateContent, updatePreviewText })
                     .then(response => {
                         console.log(response.data);
@@ -138,7 +138,7 @@ function EditBlog() {
     const handleDeleteBlog = () => {
         try {
             axios
-                .delete(`http://localhost:4000/DeleteBlog/${editBlogId}`,
+                .delete(`https://warmth-crud.onrender.com/DeleteBlog/${editBlogId}`,
                     { editBlogId: editBlogId })
                 .then(() => {
                 })

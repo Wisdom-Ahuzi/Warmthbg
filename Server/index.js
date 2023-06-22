@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
-const port = process.env.PORT || 4000;
+const port = "https://warmth-crud.onrender.com/";
 const app = express();
 let token;
 
@@ -31,7 +31,7 @@ mongoose
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: "*",
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })

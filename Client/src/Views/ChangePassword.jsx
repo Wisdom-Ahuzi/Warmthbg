@@ -30,7 +30,7 @@ const ChangePassword = () => {
       if (!cookies.jwt) {
         navigate("/login")
       } else {
-        const { data } = await axios.post("http://localhost:4000", {}, { withCredentials: true });
+        const { data } = await axios.post("https://warmth-crud.onrender.com", {}, { withCredentials: true });
         if (!data.status) {
           removeCookies("jwt")
           navigate("/login")
@@ -56,7 +56,7 @@ const ChangePassword = () => {
     }
     try {
       if (password.currentPassword !== "" && password.newPassword !== "") {
-        const { data } = await axios.post("http://localhost:4000/updatePassword", {
+        const { data } = await axios.post("https://warmth-crud.onrender.com/updatePassword", {
           ...password
         }, {
           withCredentials: true

@@ -39,7 +39,7 @@ const AllBlogs = () => {
             if (!cookies.jwt) {
                 navigate("/login")
             } else {
-                const { data } = await axios.post("http://localhost:4000", {}, { withCredentials: true });
+                const { data } = await axios.post("https://warmth-crud.onrender.com/", {}, { withCredentials: true });
                 if (!data.status) {
                     removeCookies("jwt")
                     navigate("/login")
@@ -54,7 +54,7 @@ const AllBlogs = () => {
         let config = { cancelToken: source.token }
         setLoading(true)
         if (p >= 0) {
-            axios.get(`http://localhost:4000/AllBlogs?p=${p}`, config)
+            axios.get(`https://warmth-crud.onrender.com/AllBlogs?p=${p}`, config)
                 .then((response) => {
                     setLoading(false)
                     setIndividualBlog(response.data)
@@ -77,7 +77,7 @@ const AllBlogs = () => {
     }, [queryParams])
 
     useEffect(() => {
-        axios.post("http://localhost:4000/DashboardAuthUser", {
+        axios.post("https://warmth-crud.onrender.com/DashboardAuthUser", {
             cookies
         })
             .then((response) => {
@@ -115,7 +115,7 @@ const AllBlogs = () => {
         if (category === "Foryou") {
             try {
                 setLoading(true)
-                axios.get(`http://localhost:4000/AllBlogs`)
+                axios.get(`https://warmth-crud.onrender.com/AllBlogs`)
                     .then((response) => {
                         setLoading(false)
                         setIndividualBlog(response.data)
@@ -132,11 +132,11 @@ const AllBlogs = () => {
             }
         } else {
             try {
-                axios.post("http://localhost:4000/BlogCategory", { categoryItem })
+                axios.post("https://warmth-crud.onrender.com/BlogCategory", { categoryItem })
                     .then((response) => {
                         try {
                             setLoading(true)
-                            axios.get("http://localhost:4000/BlogGetCategory")
+                            axios.get("https://warmth-crud.onrender.com/BlogGetCategory")
                                 .then((response) => {
                                     setLoading(false)
                                     setIndividualBlog(response.data)

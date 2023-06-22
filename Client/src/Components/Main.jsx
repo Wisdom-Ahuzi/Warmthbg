@@ -32,7 +32,7 @@ function Main() {
     });
   useEffect(() => {
     setLoading(true)
-    axios.get(`http://localhost:4000/Home?p=${p}`)
+    axios.get(`https://warmth-crud.onrender.com/Home?p=${p}`)
       .then((response) => {
         setLoading(false)
         setBlogs(response.data)
