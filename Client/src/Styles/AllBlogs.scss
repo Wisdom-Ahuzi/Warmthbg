@@ -1,0 +1,449 @@
+@import "_config";
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=IBM+Plex+Mono:wght@500&family=Inter:wght@300;400;500&family=Sono:wght@500&display=swap');
+.allblogs-Container {
+  width: 100%;
+  height: auto;
+  @include display($direction: column, $justify: unset, $align: unset);
+  .nav {
+    width: 100%;
+    height: 70px;
+    @include display();
+    background-color: #fff;
+    border-bottom: 1px solid $description-White;
+    nav {
+      width: 100%;
+      height: 100%;
+      padding: 0 30px;
+      @include display($justify: space-between);
+
+      .left-Nav {
+        @include display($justify: unset, $align: unset);
+        gap: 15px;
+        a {
+          color: $background-Black;
+          &:active {
+            color: $background-Black;
+          }
+          .logo {
+            cursor: pointer;
+          }
+        }
+
+        .search {
+          @include display();
+          position: relative;
+          width: 100%;
+          .glass {
+            position: absolute;
+            left: 5px;
+          }
+          input {
+            width: 100%;
+            background-color: rgb(246, 243, 243);
+            height: 35px;
+            border-radius: 35px;
+            padding-left: 30px;
+            border: 1px solid transparent;
+            outline: none;
+            font-size: 14px;
+          }
+        }
+      }
+      .right-Nav {
+        @include display($justify: unset, $align: unset);
+        gap: 25px;
+        cursor: pointer;
+         a {
+            all: unset;
+            text-decoration: none;
+            color: rgb(151, 157, 169);
+            &:hover {
+            @extend %transition;
+            transition-duration: 1;
+
+            color: $text-Black !important;
+          }
+          }
+        .write {
+          a {
+            all: unset;
+            text-decoration: none;
+
+          }
+          @include display($justify: unset);
+          gap: 5px;
+          color: rgb(151, 157, 169);
+          @extend %transition;
+          transition-duration: 1;
+
+          p {
+            font-size: 14px;
+            line-height: 25px;
+            font-weight: 800;
+            font-family: "Sofia Sans Semi Condensed", sans-serif;
+          }
+          &:hover {
+            @extend %transition;
+            transition-duration: 1;
+
+            color: $text-Black !important;
+          }
+        }
+        .user {
+          color: rgba(59, 59, 59, 0.459);
+          @extend %transition;
+          transition-duration: 1;
+
+          &:hover {
+            @extend %transition;
+            transition-duration: 1;
+            color: $text-Black !important;
+          }
+        }
+      }
+    }
+  }
+  main {
+    width: 100%;
+    height: auto;
+    @include display();
+    .main {
+      width: 95%;
+      height: auto;
+      padding: 0 30px;
+      @include display($direction: column, $justify: unset, $align: unset);
+      gap: 5px;
+
+      .for-You {
+        @include display($justify: space-between);
+        width: 100%;
+        height: 60px;
+        overflow-y: scroll;
+        border-bottom: 1px solid $description-White;
+        top: 0;
+        position: sticky;
+      
+
+        background-color: #fff;
+          h3{
+            font-family: 'Inter', sans-serif;
+            color: #222222;
+            font-size: 18px;
+            font-weight: 500;
+          }
+        div{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          p{
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color:#4e4e4e;
+          }
+          .true{
+            color: #222222;
+            font-size: 18px;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .all-Blogs {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        .individual-Blog {
+          width: inherit;
+          height: 290px;
+          @include display($justify: space-between);
+          border-bottom: 1px solid #e8e5e5de;
+          .content-Section {
+            width: 80%;
+            height: inherit;
+            @include display(
+              $direction: column,
+              $justify: center,
+              $align: unset
+            );
+            gap: 20px;
+            .writer-details {
+              width: auto;
+              @include display($justify: unset);
+              gap: 9px;
+              h4 {
+                @extend %Intro-Ptag;
+              }
+              span,
+              p {
+                @extend %Intro-Ptag;
+                font-size: 14px;
+                color: $description-White;
+              }
+            }
+            .header-Content {
+              width: 100%;
+              @include display(
+                $direction: column,
+                $justify: unset,
+                $align: unset
+              );
+              gap: 5px;
+              a {
+                text-decoration: none;
+                h2 {
+                  @extend %topic-Headers;
+                  cursor: pointer;
+                  font-size: 24px;
+                  font-family: 'Inter', sans-serif;
+                  font-weight: 500;
+                  color:#222222;
+                }
+              }
+
+              p {
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                width: 90%;
+                @extend %Intro-Ptag;
+              }
+            }
+            .tags {
+              width: 100%;
+              @include display($justify: unset);
+              gap: 10px;
+              .tag {
+                padding: 1px 12px;
+                border-radius: 20px;
+                background-color: #edebebde;
+                font-size: 12px;
+                font-family: 'Inter', sans-serif;
+                font-weight: 300;
+                text-align: center;
+                color:#4e4e4e;
+              }
+            }
+          }
+          .image-Section {
+            height: 100%;
+            @include display();
+            img {
+              width: 300px;
+              height: 200px;
+              border-radius: 12px;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+  }
+  .pagination-Container {
+    width: 100%;
+    padding: 0 50px;
+    padding-bottom: 20px;
+    height: 100px;
+    @include display($justify: space-between);
+    align-items: flex-end;
+    span {
+      @include display($justify: unset);
+      gap: 9px;
+      @extend %Intro-Ptag;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+ main {
+    .main {
+      padding: 0px !important;
+      gap: 5px;
+      .for-You {
+        height: 60px;
+          
+        div{
+          gap: 20px;
+          p{
+            font-size: 15px !important;
+          }
+          .true{
+            font-size: 16px !important;
+          }
+        }
+      }
+
+      .all-Blogs {
+        gap: 50px;
+
+        .individual-Blog {
+          .content-Section {
+            gap: 20px !important;
+            .writer-details {
+              h4 {
+                font-size: 15px !important;
+              }
+              span,
+              p {
+                font-size: 12px !important;
+              }
+            }
+            .header-Content {
+              gap: 5px;
+              a {
+                h2 {
+                  font-size: 22px !important;
+                }
+              }
+
+              p {
+                width: 90%;
+                font-size: 13px !important;
+              }
+            }
+            .tags {
+              gap: 10px;
+              .tag {
+                font-size: 12px;
+              }
+            }
+          }
+          .image-Section {
+            img {
+              width: 250px !important;
+              height: 180px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  .pagination-Container {
+    padding: 0px 12px !important;
+    padding-bottom: 15px !important;
+    height: 80px !important;
+    span {
+      gap: 6px !important;
+      font-weight: 400 !important;
+    }
+  }
+}
+
+
+@media screen and (max-width:600px) {
+ .nav {
+    width: 100%;
+    height: 60px !important;
+    nav{
+      padding: 0 2px !important;
+      .log,.user,.write{
+        width: 25px !important;
+        height: 25px !important;
+      }
+      .logo{
+        width: 30px !important;
+        height: 30px !important;
+        margin-top: 5px !important;
+      }
+
+      .left-Nav{
+        gap: 10px !important;
+      }
+      .search {
+        .glass{
+          width: 15px !important;
+          height: 15px !important;
+        }
+        input {
+          width: 100%;
+          background-color: rgb(246, 243, 243);
+          height: 30px !important;
+          font-size: 12px !important;
+        }
+      }
+    }
+  }
+
+   main {
+    .main {
+      .for-You {
+
+        height: 40px !important;          
+        div{
+          p{
+            font-size: 12px !important;
+          }
+          .true{
+            font-size: 14px !important;
+          }
+        }
+      }
+
+      .all-Blogs {
+        gap: 50px !important;
+        padding-top: 20px !important;
+        .individual-Blog {
+          height: auto !important;
+          border-bottom: unset !important;
+          flex-direction: column-reverse !important;
+          .content-Section {
+            gap: 10px !important;
+            width: 100% !important;
+            .writer-details {
+              h4 {
+                font-size: 13px !important;
+              }
+              span,
+              p {
+                font-size: 11px !important;
+              }
+            }
+            .header-Content {
+              a {
+                h2 {
+                  font-size: 19px !important;
+                }
+              }
+
+              p {
+                width: 100% !important;
+                font-size: 12px !important;
+              }
+            }
+            .tags {
+              gap: 10px;
+              .tag {
+                font-size: 11px !important;
+              }
+            }
+          }
+          .image-Section {
+            img {
+              width: 100% !important;
+              height: 100% !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+   .pagination-Container {
+    span {
+      font-size: 12px !important;
+      .arr{
+        width: 15px !important;
+        height: 15px !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=IBM+Plex+Mono:wght@500&family=Inter:wght@300;400;500&family=Sono:wght@500&display=swap');
+$background-Black: #1d1d1d;
+$text-White: rgb(214, 215, 216);
+$nav-BorderBottom: rgb(25, 25, 25);
+$secondary-Black: rgb(25, 25, 25);
+$description-White: rgb(151, 157, 169);
+$link-Hover: rgba(107, 81, 171, 0.747);
+//Light Mode Colours
+$background-White: rgb(249, 250, 251);
+$text-Black: rgb(0, 0, 0);
+$text-Blue: rgba(55, 11, 122, 0.945);
+$text-Blue-Transition: rgba(39, 7, 87, 0.945);
+$description-Black: rgb(156, 163, 175);
+
+//"Wisdom"
+%wisdom-Tag {
+  font-size: 21px;
+  line-height: 28px;
+  color: $secondary-Black;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+%element-Tags {
+  font-size: 16px;
+  line-height: 25px;
+  color: $secondary-Black;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;}
+
+%Links {
+  font-family: 'Inter', sans-serif;  font-weight: 700;
+  font-size: 14px;
+  color: $secondary-Black;
+  text-decoration: none;
+  cursor: default;
+  transition: all 0.5s ease;
+  &:hover {
+    transition: all 0.5s ease;
+  }
+  cursor: pointer;
+}
+
+%Intro-Home {
+  font-family: 'Inter', sans-serif;  font-weight: 800;
+  font-size: 51px;
+  line-height: normal;
+  color: $text-Black;
+}
+
+%Intro-Ptag {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: $text-Black;
+}
+
+%topic-Headers {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: normal;
+  color: $text-Black;
+}
+
+//Utilities
+@mixin display($direction: row, $align: center, $justify: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+%transition {
+  transition: all 4.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+%transition-2 {
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}

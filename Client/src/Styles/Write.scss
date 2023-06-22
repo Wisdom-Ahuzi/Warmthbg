@@ -1,0 +1,264 @@
+@import "_config";
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=IBM+Plex+Mono:wght@500&family=Inter:wght@300;400;500&family=Sono:wght@500&display=swap');
+
+%write-tags{
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 28px;
+  color:#4e4e4e;
+}
+
+.write-Container {
+  width: 100%;
+  height: auto;
+  @include display();
+
+  .inner-Write-Container {
+    width: 100%;
+    height: 100%;
+    @include display($direction: column, $justify: unset, $align: unset);
+    
+    nav {
+      width: 100%;
+      height: 70px;
+      padding: 0 3%;
+      @include display($justify: space-between);
+      border-bottom: 1.5px solid #edebebde;
+
+      .nav-Left {
+        @include display();
+        gap: 10px;
+        a {
+          color: $background-Black;
+          &:active {
+            color: $background-Black;
+          }
+        }
+        .logo {
+          cursor: pointer;
+        }
+
+        p {
+          text-wrap:balance;
+          @extend %Intro-Ptag;
+        }
+      }
+      .nav-Right {
+        width: auto;
+        height: 100%;
+        @include display();
+        gap: 10px;
+        cursor: pointer;
+        a {
+          color: $background-Black;
+          &:active {
+            color: $background-Black;
+          }
+        }
+        .publish {
+          padding: 5px 18px;
+          @extend %Intro-Ptag;
+          cursor: pointer;
+          font-size: 14px;
+          color: $text-White;
+          text-decoration: none;
+          border-radius: 20px;
+          background-color: rgb(40, 40, 133);
+        }
+      }
+    }
+
+    main {
+      width: 100%;
+      align-self: center;
+      padding: 0 3%;
+      @include display( $align: flex-start);
+      min-height: 80vh;
+      &>div{
+        width: 75%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 10px;
+        border-right: 1.5px solid #edebebde;
+        & > input[type="text"] {
+          width: 100%;
+          align-self: flex-start;
+          padding: 10px 0;
+          border: 0px solid transparent;
+          outline: none;
+          text-align: start;
+          padding-left: 3px;
+          font-weight: 500;
+          @extend %write-tags;
+          font-size: 21px;
+        }
+
+        & > input[type="file"] {
+          align-self: center;
+        }
+
+        section:nth-child(3){
+          label{
+            @extend %Intro-Ptag;
+            color: $description-White;
+          }
+            .textarea {
+              width: 100%;
+              @extend %write-tags;  
+              min-height: 300px;
+              img {
+                width: 100%;
+                object-fit: contain;
+              }
+            }
+        }
+
+        .preview-Text {
+          width: 100%;
+          height: 160px;
+          @extend %Intro-Ptag;
+          span {
+            font-size: 14px;
+            color: $description-White;
+          }
+          textarea {
+            width: 100%;
+            border: none;
+            // height: 100%;
+            outline: none;
+            resize: none;
+            @extend %write-tags;
+          }
+        }
+      }
+       aside {
+        width: 30%;
+        position: sticky;
+        padding: 0 25px;
+        top: 0px;
+        @include display($direction:column);        
+        .content {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          align-items: flex-start;
+          h3{
+            @extend %element-Tags;
+            width: auto;
+            align-self: flex-start;
+            padding-top: 15px;
+            color:#4e4e4e;
+          }
+
+          .tag {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            grid-template-columns: unset !important;
+            grid-template-rows: unset !important;
+            
+
+            padding-top: 10px;
+            display: flex;
+            flex-direction: row;
+            
+            gap: 10px; 
+            width: auto;
+            .t {
+              @extend %element-Tags;
+              background-color: #edebebde;
+              padding: 3px 12px;
+              cursor: pointer;
+              font-size: 13px ;
+              font-weight: 300;
+              text-align: center;
+              border-radius: 20px;       
+              color:#4e4e4e;
+              width: auto;
+            }
+            .add{
+              background-color: rgb(85, 201, 135);
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .write-Container {
+  width: 100%;
+  height: auto;
+  @include display();
+
+  .inner-Write-Container {
+    main {
+      @include display( $direction:column-reverse);
+      &>div{
+        width: 97%;
+        gap: 20px !important;
+        padding: 20px 0px !important;
+        border-top: 1.5px solid #edebebde;
+        border-right: unset !important;
+      }
+      .preview-Text {
+          height: auto !important;
+          textarea{
+            height: 120px !important;
+          }
+        }
+       aside {
+        width: 97% !important;
+        position: unset !important;
+        padding: 0px !important;
+        padding-bottom: 50px !important;
+        @include display($direction:column);        
+        .content {
+          .tag {
+            padding-top: 10px;
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            grid-template-columns: unset !important;
+            grid-template-rows: unset !important;
+            gap: 10px; 
+            width: auto;
+            .t{
+              font-size: 12px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+}
+
+@media screen and (max-width:425px) {
+  .write-Container {
+
+  .inner-Write-Container {
+    main {
+      &>div{
+        width: 100% !important;
+      }
+      .preview-Text {
+          textarea{
+            font-size: 14px !important;
+            height: 120px !important;
+          }
+        }
+       aside {
+        width: 100% !important;
+        height: auto !important;     
+      
+      }
+    }
+  }
+}
+}

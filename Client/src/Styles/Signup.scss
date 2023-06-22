@@ -1,0 +1,128 @@
+@import "_config";
+
+.signup-Container {
+  width: 100%;
+  height: 100vh;
+  @include display($justify: space-between);
+  .image-Container {
+    width: 55%;
+    height: inherit;
+    img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+    }
+  }
+  .welcome-Container {
+    width: 50%;
+    height: inherit;
+    @include display();
+    .inner-Welcome {
+      width: 60%;
+      height: 60%;
+      @include display($direction: column, $justify: unset, $align: unset);
+      gap: 50px;
+      .welcome-Intro {
+        height: 30%;
+        @include display($direction: column, $justify: unset, $align: unset);
+        gap: 20px;
+
+        .big-Texts {
+          h3 {
+            @extend %topic-Headers;
+            font-size: 32px;
+          }
+          h4 {
+            @extend %topic-Headers;
+            font-size: 27px;
+          }
+        }
+        .small-Texts {
+          @extend %element-Tags;
+          font-size: 13px;
+          line-height: normal;
+          color: $text-Black;
+          .already {
+            @include display($justify: unset, $align: unset);
+            gap: 5px;
+            margin: 2px 0;
+            a {
+              text-decoration: none !important;
+            }
+            .login-Signup {
+              text-decoration: underline;
+              cursor: pointer;
+              color: $description-White;
+            }
+          }
+        }
+      }
+      .signup-Mail {
+        height: 60%;
+        @include display($direction: column, $justify: unset, $align: unset);
+        gap: 30px;
+        .Box {
+          width: 100%;
+        }
+        .signup-Button {
+          width: 100%;
+          height: 40px;
+          margin-top: 15px;
+          @extend %Intro-Ptag;
+          font: 14px;
+          @extend %transition;
+          @include display();
+          cursor: pointer;
+          border-radius: 5px;
+          background-color: $text-Blue;
+          color: $background-White;
+          &:hover {
+            @extend %transition;
+            background-color: $text-Blue-Transition;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+
+  .signup-Container {
+  width: 100%;
+  height: 700px !important;
+  
+  .image-Container {
+    display: none;
+    img {
+      display: none;
+    }
+  }
+  .welcome-Container {
+    padding: 0 15px;
+    width: 100% !important;
+    .inner-Welcome {
+      width: 100% !important;
+      height: 70% !important;
+      gap: 50px;
+      .welcome-Intro {
+        height: 30%;
+        @include display($direction: column, $justify: unset, $align: unset);
+        gap: 20px;
+
+        .big-Texts {
+          h3 {
+            font-size: 22px !important;
+          }
+          h4 {
+            font-size: 27px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+}

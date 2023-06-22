@@ -1,0 +1,197 @@
+@import "_config";
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=IBM+Plex+Mono:wght@500&family=Inter:wght@300;400;500&family=Sono:wght@500&display=swap');
+
+.header-Container {
+  width: 100%;
+  height: 900px;
+  .inner-Header {
+    width: 100%;
+    height: inherit;
+    @include display($direction: column);
+    gap: 20px;
+
+    .intro-Header {
+      width: 100%;
+      @include display($direction: column);
+      height: 35%;
+      h3 {
+        @extend %Intro-Home;
+        font-size: 15px;
+        line-height: 0;
+      }
+
+      h1 {
+        @extend %Intro-Home;
+      }
+      h4 {
+        @extend %Intro-Ptag;
+        text-align: center;
+      }
+    }
+    .image-Container {
+      width: 100%;
+      height: 65%;
+      @include display($direction: column, $align: unset);
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 25px;
+        object-fit: cover;
+      }
+      .image-Details {
+        width: auto;
+        background-color: transparent;
+        @include display($direction: column, $justify: unset, $align: unset);
+        gap: 20px;
+        position: absolute;
+        bottom: 30px;
+        left: 15px;
+        color: $text-White;
+        .name {
+          @extend %Intro-Ptag;
+          color: $text-White;
+          background-color: transparent;
+        }
+        .presentation {
+          background-color: transparent;
+
+          h2 {
+            @extend %topic-Headers;
+            color: $text-White;
+            font-size: 32px;
+            background-color: transparent;
+          }
+        }
+        .presentation-Text {
+          background-color: transparent;
+
+          p {
+            background-color: transparent;
+
+            @extend %Intro-Ptag;
+            color: $text-White;
+          }
+        }
+        .tags {
+          width: 100%;
+          @include display($justify: unset);
+          gap: 5px;
+          background-color: transparent;
+
+          .tag {
+            background-color: transparent;
+
+            border: 1px solid $text-White;
+            width: auto;
+            padding: 0 15px;
+            height: 22px;
+            @include display();
+            border-radius: 10px;
+            color: $text-White;
+            @extend %Intro-Ptag;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .header-Container {
+    height: 800px;
+  .inner-Header {
+    gap: 0px;
+    .intro-Header {
+      h3 {
+        font-size: 16px;
+      }
+
+
+      h1 {
+        display: flex;
+        align-items: center;
+        gap: 4px ;
+        font-size: 31px;
+      }
+      h4 {
+        font-size: 15px;
+        
+      }
+    }
+    .image-Container {
+      height: 60%;
+      
+      .image-Details {
+        gap: 10px;
+        position: absolute;
+        .name {
+          font-size: 16px;
+        }
+      
+        h2 {
+          font-size: 25px;
+        }
+        p {
+          font-size: 14px;
+          width: 60%;
+        }
+        
+      }
+    }
+  }
+}
+}
+
+
+@media screen and (max-width:425px) {
+  .header-Container {
+    height: 710px !important;
+  .inner-Header {
+    gap: 0px !important;
+    justify-content: unset !important;
+    .intro-Header {
+      h3 {
+        font-size: 15px !important;
+      }
+      .wind{
+        width: 25px;
+        height: 25px;
+      }
+
+      h1 {
+        font-size: 24px !important;
+      }
+      h4 {
+        font-size: 13px !important;
+        text-align: center !important;
+      }
+    }
+    .image-Container {
+      height: 55% !important;
+      .image-Details {
+        gap: 10px;
+        .name {
+          font-size: 12px !important;
+        }
+      
+        h2 {
+          font-size: 18px !important;
+        }
+        p {
+          font-size: 10px !important;
+          width: 60%;
+        }
+        .tags {
+          .tag {
+            padding: 0 10px !important;
+            height: 20px !important;
+            font-size: 10px !important;
+          }
+        }
+      }
+    }
+  }
+}
+}

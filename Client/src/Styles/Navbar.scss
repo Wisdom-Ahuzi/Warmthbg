@@ -1,0 +1,95 @@
+@import "_config";
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=IBM+Plex+Mono:wght@500&family=Inter:wght@300;400;500&family=Sono:wght@500&display=swap');
+.navbar-Container {
+  height: 70px;
+  @include display($direction: column, $justify: unset);
+  .navbar-Desktop {
+    height: 100%;
+    width: 100%;
+    @include display($justify: space-between);
+    .warmth-Icon {
+      @include display();
+      gap: 10px;
+      .icon {
+        @extend %wisdom-Tag;
+      }
+    }
+    .account-Container {
+      @include display($justify: space-between);
+      width: 20%;
+      height: 50%;
+      a{
+          all: unset;
+         font-size: 17px;
+          font-family: 'Inter', sans-serif;
+          font-weight: 500;
+          line-height: 32px;
+          color:#222222;
+          cursor: pointer;
+      }
+      .log-In {
+        @extend %Links;
+        font-size: 16px;
+      }
+      .sign-Up {
+        @include display();
+        width: auto;
+        height: 30px;
+        padding: 0 20px;
+        color: $text-White;
+        border-radius: 5px;
+        @extend %Links;
+        background-color: $background-Black;
+        &:hover {
+          background-color: $text-White;
+          color: $text-Black;
+        }
+      }
+    }
+  }
+  .navbar-Mobile {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width:768px) {
+  .navbar-Container {
+  .navbar-Desktop {
+    .account-Container {
+      @include display($justify: space-between);
+      width: 40%;
+      a{
+        font-size: 15px;
+      }
+    }
+  }
+}
+}
+
+@media screen and (max-width:425px)  {
+  .warmth-Icon {
+      @include display();
+      gap: 4px !important;
+      .icon {
+        font-size: 14px !important;
+      }
+      .finger{
+        width: 25px;
+        height: 25px;
+      }
+    }
+  .account-Container {
+      @include display($justify: space-between);
+      width: 50% !important;
+      a{
+        font-size: 13px !important;
+      }
+    }
+
+     .sign-Up {
+        @include display();
+        height: 27px !important;
+        padding: 0 12px !important;
+      }
+}

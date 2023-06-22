@@ -1,0 +1,220 @@
+@import "_config";
+
+.dashboard-Container {
+  width: 100%;
+  height: auto;
+  @include display();
+
+  .inner-dashboard-Container {
+    width: 100%;
+    height: 100%;
+    @include display($direction: column, $justify: unset);
+    gap: 35px;
+
+    nav {
+      width: 100%;
+      height: 70px;
+      padding: 0 4%;
+      top: 0;
+      position: sticky;
+      background-color: white;
+      box-shadow: 1px 2px 8px lightgray;
+      z-index: 5;
+      @include display($justify: space-between);
+      .logo-Container {
+        @include display($justify: unset);
+        gap: 8px;
+        a {
+          color: $background-Black;
+          &:active {
+            color: $background-Black;
+          }
+        }
+        svg {
+          cursor: pointer;
+        }
+        h3 {
+          font-size: 18px;
+          @extend %topic-Headers;
+        }
+      }
+      a {
+        color: black;
+      }
+    }
+
+    .dashboard-Details {
+      width: 90%;
+      height: auto;
+      @include display($justify: space-between, $align: unset);
+      .right-Container {
+        @include display($direction: column, $justify: unset, $align: unset);
+        gap: 20px;
+        width: 100%;
+        height: 100%;
+        .heading {
+          h1 {
+            @extend %Intro-Home;
+            font-size: 32px;
+            padding-bottom: 10px;
+          }
+          p {
+            @extend %Intro-Ptag;
+          }
+        }
+        .your-Blogs {
+          margin-bottom: 30px;
+          width: 100%;
+          height: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+
+          .my-Blog {
+            border-radius: 10px;
+            height: auto;
+            @include display($direction: column, $align: unset);
+            gap: 7px;
+            padding-bottom: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            @extend %transition-2;
+            z-index: 2;
+            & > .one {
+              @include display($direction: column);
+              align-items: flex-start;
+              img {
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+              }
+            }
+            span {
+              background-color: rgb(95, 94, 94);
+              width: 100%;
+              cursor: pointer;
+              height: 300px;
+              @include display();
+              @extend %transition;
+
+              &:hover {
+                background-color: rgba(95, 94, 94, 0.845);
+                @extend %transition-2;
+              }
+            }
+
+            &:hover {
+              @extend %transition-2;
+            }
+
+            h3 {
+              @extend %topic-Headers;
+              padding: 5px;
+              font-size: 17px;
+              text-decoration: none;
+            }
+            p {
+              @extend %Intro-Ptag;
+              padding: 5px;
+              font-size: 14px;
+              color: $description-White;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width:768px) {
+  .your-Blogs {
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 24px !important;
+
+    .my-Blog {
+      gap: 10px !important;
+      & > .one {
+        gap: 0px !important;
+        img {
+          height: 100% !important;
+          border-radius: 25px !important;
+        }
+
+      }
+      span {
+        height: 350px !important;
+      }
+      h3 {
+        padding: 3px !important;
+        font-size: 18px !important;
+      }
+      p {
+        padding: 3px !important;
+        font-size: 15px !important;
+      }
+    }
+  }  
+}
+
+@media screen and (max-width:425px) {
+
+   nav {
+      height: 60px !important;
+      padding: 0 1% !important;
+      position: unset !important;
+      box-shadow: 1px 2px 8px lightgray;
+      .logo-Container {
+        gap: 8px;
+        .logo{
+          width: 30px !important;
+          height: 30px !important;
+        }
+        h3 {
+          font-size: 14px !important;
+        }
+      }
+      a{
+        .user{
+          width: 27px !important;
+          height: 27px !important;
+        }
+      }
+    }
+
+    .dashboard-Details{
+      width: 95% !important;
+      .heading {
+          h1 {
+            font-size: 26px !important;
+            padding-bottom: 1px !important;
+          }
+          p {
+            font-size: 12px !important;
+          }
+        }
+      .your-Blogs {
+        .my-Blog {
+          & > .one {
+            img {
+              height: 100% !important;
+              border-radius: 0px !important;
+            }
+    
+          }
+          span {
+            height: 260px !important;
+          }
+          h3 {
+            padding: 1px !important;
+            font-size: 15px !important;
+          }
+          p {
+            padding: 1px !important;
+            font-size: 11px !important;
+          }
+        }
+      }  
+    }
+
+}

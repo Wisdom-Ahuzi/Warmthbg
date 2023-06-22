@@ -1,0 +1,131 @@
+@import "_config";
+.name-Container {
+  width: 100%;
+  height: 100vh;
+  @include display();
+
+  .inner-Name-Container {
+    height: 100%;
+    @include display($direction: column, $justify: unset);
+    gap: 20%;
+    padding-top: 30px;
+
+    .logo-Cont {
+      @include display($justify: unset, $align: center);
+      gap: 10px;
+
+      h1{
+        font-size: 24px;
+          font-family: 'Inter', sans-serif;
+          font-weight: 700;
+          line-height: 34px;
+          color:#222222;
+      }
+    }
+
+    .almost-Cont {
+      height: 50%;
+      @include display($direction: column, $justify: unset);
+      gap: 20%;
+
+      .almost-Header {
+        @include display($direction: column);
+        gap: 10px;
+        h2 {
+          @extend %topic-Headers;
+          font-size: 32px;
+        }
+        p {
+          @extend %Intro-Ptag;
+        }
+      }
+
+      .full-Name {
+        width: 100%;
+        gap: 18px;
+        height: inherit;
+
+        @include display($direction: column);
+        .full {
+          @extend %Intro-Ptag;
+          color: $description-White;
+          font-size: 13px;
+        }
+
+        .box-Como {
+          width: 100%;
+          .input {
+            width: 100%;
+          }
+        }
+        .mail-Add {
+          @extend %Intro-Ptag;
+          color: $description-White;
+          font-size: 13px;
+        }
+        p {
+          @extend %Intro-Ptag;
+        }
+
+        .creating-Account {
+          cursor: pointer;
+          width: auto;
+          border-radius: 25px;
+          padding: 5px 15px;
+          @extend %Intro-Ptag;
+          font-size: 13px;
+          color: $text-White;
+          background-color: $background-Black;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:500px) {
+  .name-Container {
+  width: 100%;
+  height: 100vh;
+  @include display();
+
+  .inner-Name-Container {
+    gap:17% !important;
+    .logo-Cont {
+      gap: 5px;
+      .finger{
+        width: 30px !important;
+        height: 30px !important;
+      }
+
+      h1{
+        font-size: 19px !important;
+      }
+    }
+
+    .almost-Cont {
+      padding: 0 20px !important;
+      .almost-Header {
+        h2 {
+          font-size: 25px !important;
+        }
+        p {
+          font-size: 14px !important;
+          text-align: center !important;
+        }
+      }
+
+      .full-Name {
+        .full {
+          font-size: 13px !important;
+        }
+
+        
+        p {
+          font-size: 14px !important;
+        }
+
+      }
+    }
+  }
+}
+}

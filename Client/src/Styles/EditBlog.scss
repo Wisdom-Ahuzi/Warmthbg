@@ -1,0 +1,349 @@
+@import "_config";
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=IBM+Plex+Mono:wght@500&family=Inter:wght@300;400;500&family=Sono:wght@500&display=swap');
+
+%write-tags{
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 28px;
+  color:#4e4e4e;
+}
+
+.edit-Container {
+  width: 100%;
+  height: auto;
+  margin-bottom: 40px;
+  @include display();
+  .inner-edit-Container {
+    width: 100%;
+    height: 100%;
+    @include display($direction: column, $justify: unset, $align: unset);
+    nav {
+      width: 100%;
+      height: 70px;
+      padding: 0 3%;
+      @include display($justify: space-between);
+      border-bottom: 1.5px solid #edebebde;
+
+      .nav-Left {
+        @include display();
+        gap: 10px;
+        a {
+          color: $background-Black;
+          &:active {
+            color: $background-Black;
+          }
+        }
+        .logo {
+          cursor: pointer;
+        }
+
+        p {
+          @extend %Intro-Ptag;
+          text-wrap:balance;
+        }
+      }
+      .nav-Right {
+        width: auto;
+        height: 100%;
+        @include display();
+        gap: 10px;
+        cursor: pointer;
+        a {
+          color: $background-Black;
+          &:active {
+            color: $background-Black;
+          }
+        }
+        .publish,
+        .delete {
+          padding: 5px 18px;
+          @extend %Intro-Ptag;
+          cursor: pointer;
+          font-size: 14px;
+          border-radius: 10px;
+          color: #fff;
+          background-color: rgb(85, 201, 135);
+        }
+        .delete {
+          background-color: rgb(161, 48, 13);
+          @extend %transition;
+        }
+      }
+    }
+
+    main {
+      width: 100%;
+      align-self: center;
+      padding: 0 3%;
+      @include display( $align: flex-start, $justify:unset);
+      min-height: 80vh;
+       &>div{
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 10px;
+        border-right: 1.5px solid #edebebde;
+        & > input[type="text"] {
+          width: 100%;
+          align-self: flex-start;
+          padding: 10px 0;
+          border: 0px solid transparent;
+          outline: none;
+          text-align: start;
+          padding-left: 3px;
+          font-weight: 500;
+          @extend %write-tags;
+          font-size: 21px;
+        }
+
+        & > input[type="file"] {
+          align-self: center;
+        }
+
+        section:nth-child(3){
+          label{
+            @extend %Intro-Ptag;
+            color: $description-White;
+          }
+            .textarea {
+              width: 100%;
+              @extend %write-tags;  
+              min-height: 300px;
+              img {
+                width: 100%;
+                object-fit: contain;
+              }
+            }
+        }
+
+        .preview-Text {
+          width: 100%;
+          height: 160px;
+          @extend %Intro-Ptag;
+          span {
+            font-size: 14px;
+            color: $description-White;
+          }
+          textarea {
+            width: 100%;
+            border: none;
+            // height: 100%;
+            outline: none;
+            resize: none;
+            @extend %write-tags;
+          }
+        }
+        }
+
+       aside {
+        width: 30%;
+        height: auto;
+        position: sticky;
+        padding: 0 25px;
+        top: 0px;
+        @include display($direction:column);
+        gap: 20px;
+        .content {
+          
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          align-items: flex-start;
+          h3{
+            @extend %element-Tags;
+            width: auto;
+            padding-top: 15px;
+            align-self: flex-start;
+            color:#4e4e4e;
+          }
+
+          .tag {
+             display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            grid-template-columns: unset !important;
+            grid-template-rows: unset !important;
+            padding-top: 10px;
+            gap: 10px; 
+            width: auto;
+            .t {
+              @extend %element-Tags;
+              background-color: #edebebde;
+              padding: 3px 12px;
+              cursor: pointer;
+              font-weight: 300;
+              text-align: center;
+              font-size: 13px ;
+              border-radius: 20px;       
+              color:#4e4e4e;
+              width: auto;
+            }
+            .add{
+              background-color: rgb(85, 201, 135);
+              color: #fff;
+            }
+          }
+        }
+
+        &>div:nth-child(even){
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: auto;
+          align-items: flex-start;
+          border-top: 1.5px solid #edebebde;
+          // background-color: slateblue;
+          h3{
+            @extend %element-Tags;
+            width: auto;
+            align-self: flex-start;
+            padding-top: 50px;
+            color:#4e4e4e;
+          }
+          div{
+            padding-top: 10px;
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            grid-template-columns: unset !important;
+            grid-template-rows: unset !important;
+            gap: 5px;
+
+          .t {
+            @extend %element-Tags;
+              background-color: #edebebde;
+              padding: 3px 12px;
+              font-weight: 300;
+              font-size: 14px;
+              text-align: center;
+              border-radius: 20px;       
+              color:#4e4e4e;
+          }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .edit-Container {
+  width: 100%;
+  height: auto;
+  margin-bottom: 7px !important;
+  @include display();
+  .inner-edit-Container {
+    main {
+      @include display( $direction:column-reverse);
+    
+      &>div{
+        width: 97%;
+        gap: 20px !important;
+        padding: 20px 0px !important;
+        border-right: unset !important;
+      }
+      .preview-Text {
+          height: auto !important;
+          textarea{
+            height: 100px !important;
+          }
+        }
+       aside {
+        width: 100% !important;
+        position: unset !important;
+        padding: 0px !important;
+        height: auto;
+        @include display($direction:column);        
+        .content {
+          .tag {
+            padding-top: 10px;
+            display: grid;
+            grid-template-columns: repeat(7,1fr);
+            gap: 10px; 
+            width: auto;
+          }
+        }
+         &>div:nth-child(even){
+           div{
+            grid-template-columns: repeat(3,1fr);
+          }
+        }
+      }
+    }
+  }
+}
+}
+
+@media screen and (max-width:425px) {
+  .edit-Container {
+  .inner-edit-Container {
+      nav {
+      height: 70px;
+      padding: 0 1% !important;
+
+      .nav-Left {
+        gap: 5px !important;
+        .logo {
+          cursor: pointer;
+          width: 30px !important;
+          height: 30px !important;
+          margin-top: 5px !important;
+
+        }
+        p {
+          font-size: 14px !important;
+        }
+      }
+      .nav-Right {
+        gap: 10px;        
+        .publish,
+        .delete {
+          border-radius: 5px !important;
+          padding: 2px 7px !important;
+          font-size: 14px;
+        }
+      }
+    }
+    main {
+      &>div{
+        width: 100% !important;
+      }
+      .preview-Text {
+
+          textarea{
+            font-size: 14px !important;
+            height: 150px !important;
+          }
+        }
+       aside {
+        width: 100% !important;
+        height: auto !important;
+        .content {
+          .tag {
+            padding-top: 10px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 10px; 
+            width: auto;
+            .t{
+              font-size: 12px !important;
+            }
+          }
+        }
+         &>div:nth-child(even){
+          div{
+            grid-template-columns: repeat(3,1fr);
+            .t {
+              font-size: 12px !important;
+          }
+          }
+        }
+
+      }
+    }
+  }
+}
+}
