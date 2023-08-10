@@ -38,6 +38,7 @@ const handleErrors = (err) => {
   return errors;
 };
 
+
 module.exports.register = async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -60,6 +61,7 @@ module.exports.register = async (req, res, next) => {
 
 module.exports.login = async (req, res, next) => {
   try {
+
     const { email, password } = req.body;
     const User = await UserModel.login(email, password);
 
@@ -69,8 +71,12 @@ module.exports.login = async (req, res, next) => {
       withCredentials: true,
       httpOnly: false,
       maxTime: maxTime * 1000,
+      sameSite: "None",
+      secure: true,
     });
 
+    
+  
     res.status(200).json({ User: User._id, created: true });
   } catch (err) {
     const errors = handleErrors(err);

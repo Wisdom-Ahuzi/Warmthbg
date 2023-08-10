@@ -13,6 +13,12 @@ const port = "https://warmth-crud.onrender.com"
 const app = express();
 let token;
 
+app.use((req, res, next) => {
+  // Set SameSite attribute to "Strict" for all cookies
+  res.setHeader('Set-Cookie', ['SameSite=Strict']);
+  next();
+});
+
 app.listen(4000, () => {
   console.log(`Server is listening on port ${port}`);
 });
@@ -31,9 +37,9 @@ mongoose
 
 app.use(
   cors({
-    origin: ["https://warmthbg.netlify.app","http://localhost:3000"],
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    credentials: true,
+    origin: ["https://warmthbg.netlify.app","http://localhost:3000"]
+    // methods: ["GET", "POST", "DELETE", "PUT"],
+    // credentials: true,
   })
 );
 
