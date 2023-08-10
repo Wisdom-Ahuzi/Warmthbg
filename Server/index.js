@@ -37,9 +37,9 @@ mongoose
 
 app.use(
   cors({
-    origin: ["https://warmthbg.netlify.app","http://localhost:3000"]
+    origin: ["https://warmthbg.netlify.app","http://localhost:3000"],
     // methods: ["GET", "POST", "DELETE", "PUT"],
-    // credentials: true,
+    credentials: true
   })
 );
 
